@@ -47,7 +47,6 @@ def create_inception_graph():
 
 def run_bottleneck_on_image(sess, image_data, image_data_tensor,
                             bottleneck_tensor):
-    print(image_data_tensor)
     bottleneck_values = sess.run(
       		bottleneck_tensor,
       		{image_data_tensor: image_data})
