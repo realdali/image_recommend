@@ -73,7 +73,7 @@ slippers_files = [
 #     'uploads/apparel/' + f for f in os.listdir('uploads/apparel')
 # ]
 
-all_files = boots_files + shoes_files + slippers_files + sandals_files
+all_files = boots_files[:1000] + shoes_files[:1000] + slippers_files[:1000] + sandals_files[:1000]
 
 # 获取所有文件
 # shirt_files = [
@@ -87,7 +87,7 @@ random.shuffle(all_files)
 num_images = 10000
 neighbor_list = all_files[:num_images]
 # 将文件序列写入到pickle文件中
-with open('neighbor_list_recom.pickle','wb') as f:
+with open('../lib/neighbor_list_recom.pickle','wb') as f:
         pickle.dump(neighbor_list,f)
 print("saved neighbour list")
 
