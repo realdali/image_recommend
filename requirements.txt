@@ -1,0 +1,5 @@
+flask
+flask-httpauth=4.0.0
+keras==2.2.5
+tensorflow==1.13.1
+imageio
