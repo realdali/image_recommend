@@ -44,6 +44,8 @@ def get_top_k_similar(image_data, pred, pred_final, k=9):
     top_k_ind = np.argsort([cosine(image_data, pred_row) \
         for ith_row, pred_row in enumerate(pred)])[:k]
     print(top_k_ind)
+
+    scores = []
     
     for i, neighbor in enumerate(top_k_ind):
         image = imageio.imread(pred_final[neighbor])
@@ -51,9 +53,17 @@ def get_top_k_similar(image_data, pred, pred_final, k=9):
         timestr = datetime.now().strftime("%Y%m%d%H%M%S")
         name= timestr+"."+str(i)
         print(name)
+        scores.append({
+          'score': 0.999999 - cosine(image_data, pred[neighbor]),
+          'image': name
+        })
         name = 'static/result/image'+"_"+name+'.jpg'
         imageio.imwrite(name, image)
       
+
+    print('scores')
+    print(scores)
+    return scores
                 
 def create_inception_graph():
   """"Creates a graph from saved GraphDef file and returns a Graph object.
@@ -101,5 +111,5 @@ def recommend(imagePath, extracted_features):
     with open('../lib/neighbor_list_recom.pickle','rb') as f:
         neighbor_list = pickle.load(f) 
     print("loaded images")
-    get_top_k_similar(features, extracted_features, neighbor_list, k=9)
+    return get_top_k_similar(features, extracted_features, neighbor_list, k=9)
 

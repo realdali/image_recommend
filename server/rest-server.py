@@ -77,24 +77,17 @@ def upload_img():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             inputloc = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             #outputloc = '/home/vinayak/todo-api/out'
-            recommend(inputloc, extracted_features)
+            scores = recommend(inputloc, extracted_features)
             os.remove(inputloc)
             #label = label1.replace("\n", "")
             image_path = "/result"
             image_list =[os.path.join(image_path,file) for file in os.listdir(result)
                               if not file.startswith('.')]
-            images = {
-			'image0':image_list[0],
-            'image1':image_list[1],	
-			'image2':image_list[2],	
-			'image3':image_list[3],	
-			'image4':image_list[4],	
-			'image5':image_list[5],	
-			'image6':image_list[6],	
-			'image7':image_list[7],	
-			'image8':image_list[8]
-		      }				
-            return jsonify(images)
+            images = image_list			
+            return jsonify({
+                'images': images,
+                'scores': scores
+            })
 
 #==============================================================================================================================
 #                                                                                                                              

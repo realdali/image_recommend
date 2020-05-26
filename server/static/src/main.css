@@ -1,0 +1,54 @@
+html {
+  font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+body {
+  
+}
+.navbar-inner {
+  font-size: 24px;
+  line-height: 50px;
+  text-align: center;
+  color: #00adbc;
+}
+
+.loading {
+  height: 100px;
+  width: 100px;
+  display: none
+}
+
+.search {
+  position: relative;
+  min-height: 60px;
+}
+.file {
+  width: 60px !important;
+}
+
+.btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+    width: 60px !important;
+    margin: 20px 0;
+    background: #00adbc;
+    color: #fff;
+    padding: 8px;
+    border: none;
+}
+
+.result {
+}
+.result-tip {
+    border-top: solid #00adbc 2px;
+    line-height: 40px;
+    padding-left: 8px;
+    background: #ded;
+}
+.item {
+  display: inline-block;
+  width: 33.33%;
+  text-align: center;
+  margin-bottom: 20px;
+}
